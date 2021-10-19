@@ -8,7 +8,8 @@ public class UserService {
 		usersMethods.delUser();
 		usersMethods.displayAllEmployees();
 		usersMethods.displayUserById();
-		
+		usersMethods.addUser();
+		usersMethods.addUser();
 	}
 
 }
