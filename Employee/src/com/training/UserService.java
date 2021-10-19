@@ -7,6 +7,7 @@ public class UserService {
 		usersMethods.displayAllEmployees();
 		usersMethods.delUser();
 		usersMethods.displayAllEmployees();
+		usersMethods.displayUserById();
 		
 	}
 
