@@ -1,6 +1,7 @@
 package com.training;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 
@@ -26,28 +27,44 @@ public class UserMethods {
 	 
 	 
 	 public void delUser() {
+		 boolean found=false;
 			System.out.println("Enter id to delete:");
 			int id=scan.nextInt();
-
-			for(int i=0;i<arrayList.size();i++) {
-				if(arrayList.get(i).equals(id)) {
-					arrayList.remove(user);
-			}
-				else {
-					System.out.println("element not found");	
+			Iterator itr=arrayList.iterator();
+			while(itr.hasNext()) {
+				User user=(User)itr.next();
+				if(user.getId() == id) {
+					itr.remove();
+					System.out.println(user);
+					found= true;
 				}
+			}
+			if(!found) {
+				System.out.println("element  not deleted ");
+			}
+			else {
+				System.out.println("Element deleted");
 			}
 	 }
 			
-			public void searchuser(int id) {
-				int index=arrayList.indexOf(id);
-				if(arrayList.equals(index)) {
-					System.out.println("element found ");
+			public void searchuser() {
+				boolean found=false;
+				System.out.println("Enter id to search:");
+				int id=scan.nextInt();
+				Iterator itr=arrayList.iterator();
+				while(itr.hasNext()) {
+					User user=(User)itr.next();
+					if(user.getId() == id) {
+						System.out.println(user);
+						found= true;
+					}
+				}
+				if(!found) {
+					System.out.println("element  not found ");
 				}
 				else {
-					System.out.println("element not found");
+					System.out.println("element found");
 				}
-				
 			}
 			
 			public void displayUserById() {
@@ -64,7 +81,7 @@ public class UserMethods {
 				}
 				
 			}
-			public void displayAllEmployees() {
+			public void displayAllUsers() {
 				System.out.println("All users are:"+arrayList);
 				
 			}
